@@ -33,6 +33,10 @@ function MuiForm({ housesText, setHousesText, housesQuantity, setHousesQuantity,
     const input = event.target;
     const value = input.value;
 
+    if(value.length > 55) {
+      return
+    }
+
     setHousesText({...housesText, [input.name]: value});
     
   }, [housesText, setHousesText]);
@@ -44,7 +48,7 @@ function MuiForm({ housesText, setHousesText, housesQuantity, setHousesQuantity,
 
       inputHouses.push({
         name: `house-${index+1}`,
-        label: `Casa ${index+1}`
+        label: `Casa ${index+1}`,
       })
     }
 
