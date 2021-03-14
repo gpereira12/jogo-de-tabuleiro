@@ -56,7 +56,7 @@ function MuiForm({ housesText, setHousesText, housesQuantity, setHousesQuantity,
             type="text"
             label={input.label}
             onChange={handleHouseText}
-            style={{marginLeft: '12px'}}
+            style={{marginLeft: '12px', marginBottom: '12px'}}
           />
         ))}
       </>
