@@ -92,30 +92,32 @@ export const houses = [
 ]
 
 export const numberClass = (length) => {
-    if(length == 5) return 'five';
-    if(length == 6) return 'six twoColumns';
-    if(length == 7) return 'seven threeColumns';
-    if(length == 8) return 'eight twoColumns';
-    if(length == 9) return 'nine twoColumns';
-    if(length == 10) return 'ten twoColumns';
-    if(length == 11) return 'eleven twoColumns';
-    if(length == 12) return 'twelve fourColumns';
-    if(length == 13) return 'thirteen fiveColumns';
-    if(length == 14) return 'fourteen fourColumns';
-    if(length == 15) return 'fifteen fourColumns';
-    if(length == 16) return 'sixteen fourColumns';
-    if(length == 17) return `moreSeventeen house-${length} fourColumns`;
-    if(length == 18) return `moreSeventeen house-${length} fourColumns twoRow`;
-    if(length == 19) return `moreSeventeen house-${length} fourColumns threeRow`;
-    if(length == 20) return `moreSeventeen house-${length} fourColumns fourRow`;
-    if(length == 21) return `moreSeventeen house-${length} fourColumns fourRow`;
-    if(length == 22) return `moreSeventeen house-${length} fourColumns fourRow`;
-    if(length == 23) return `moreSeventeen house-${length} fourColumns fiveRow`;
-    if(length == 24) return `moreSeventeen house-${length} fourColumns sixRow`;
-    if(length == 25) return `moreSeventeen house-${length} fourColumns sevenRow`;
-    if(length == 26) return `moreSeventeen house-${length} fourColumns eightRow`;
-    if(length == 27) return `moreSeventeen house-${length} fourColumns eightRow`;
-    if(length == 28) return `moreSeventeen house-${length} fourColumns eightRow`;
-    if(length == 29) return `moreSeventeen house-${length} fourColumns nineRow`;
-    if(length == 30) return `moreSeventeen house-${length} fourColumns tenRow`;
+    const number = +length;
+
+    if(number === 5) return 'five';
+    if(number === 6) return 'six twoColumns';
+    if(number === 7) return 'seven threeColumns';
+    if(number === 8) return 'eight twoColumns';
+    if(number === 9) return 'nine twoColumns';
+    if(number === 10) return 'ten twoColumns';
+    if(number === 11) return 'eleven twoColumns';
+    if(number === 12) return 'twelve fourColumns';
+    if(number === 13) return 'thirteen fiveColumns';
+    if(number === 14) return 'fourteen fourColumns';
+    if(number === 15) return 'fifteen fourColumns';
+    if(number === 16) return 'sixteen fourColumns';
+    if(number === 17) return `moreSeventeen house-${number} fourColumns`;
+    if(number === 18) return `moreSeventeen house-${number} fourColumns twoRow`;
+    if(number === 19) return `moreSeventeen house-${number} fourColumns threeRow`;
+    if(number === 20) return `moreSeventeen house-${number} fourColumns fourRow`;
+    if(number === 21) return `moreSeventeen house-${number} fourColumns fourRow`;
+    if(number === 22) return `moreSeventeen house-${number} fourColumns fourRow`;
+    if(number === 23) return `moreSeventeen house-${number} fourColumns fiveRow`;
+    if(number === 24) return `moreSeventeen house-${number} fourColumns sixRow`;
+    if(number === 25) return `moreSeventeen house-${number} fourColumns sevenRow`;
+    if(number === 26) return `moreSeventeen house-${number} fourColumns eightRow`;
+    if(number === 27) return `moreSeventeen house-${number} fourColumns eightRow`;
+    if(number === 28) return `moreSeventeen house-${number} fourColumns eightRow`;
+    if(number === 29) return `moreSeventeen house-${number} fourColumns nineRow`;
+    if(number === 30) return `moreSeventeen house-${number} fourColumns tenRow`;
 }
