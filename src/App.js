@@ -1,23 +1,59 @@
-import logo from './logo.svg';
+import React, { useState, useRef, useCallback } from 'react';
+import { exportComponentAsJPEG } from 'react-component-export-image';
+
+import { Button, LinearProgress } from '@material-ui/core';
+
+import Form from './componentes/MuiForm';
+import BoardGame from './componentes/BoardGame';
+
+
 import './App.css';
 
-function App() {
+const App = () => {
+  const componentRef = useRef();
+  const [ isSubmitting, setIsSubmitting ] = useState(false);
+  const [ disableButton, setDisableButton ] = useState(false);
+  const [ housesText, setHousesText ] = useState([]);
+  const [ housesQuantity, setHousesQuantity ] = useState(5);
+
+  const createBoardGame = useCallback(() => {
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      exportComponentAsJPEG(componentRef, 'Jogo Tabuleiro');
+      setIsSubmitting(false);
+    }, 1000);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form 
+        housesQuantity={housesQuantity} 
+        setHousesQuantity={setHousesQuantity} 
+        housesText={housesText} 
+        setHousesText={setHousesText}
+        setDisableButton={setDisableButton}
+      />
+      <br />
+      <br />
+      {isSubmitting && <LinearProgress />}
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={isSubmitting || disableButton}
+        onClick={createBoardGame}
+      >
+        {isSubmitting ? 'Gerando tabuleiro...' : 'Gerar Tabuleiro'}
+      </Button>
+      <br />
+      <br />
+      <BoardGame 
+        ref={componentRef}
+        housesText={housesText} 
+        setHousesText={setHousesText}
+        housesQuantity={housesQuantity} 
+        setHousesQuantity={setHousesQuantity} 
+      />
     </div>
   );
 }

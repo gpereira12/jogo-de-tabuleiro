@@ -1,0 +1,713 @@
+.wrapper {
+  height: 100vh;
+}
+
+.board-game {
+    background: #ecdfad;
+    padding: 20px;
+    height: 150px;
+    width: 860px;
+    border: 2px solid #311403;
+    border-radius: 4px;
+}
+
+.board-game.twoColumns {
+  height: 330px;
+}
+.board-game.threeColumns {
+  height: 440px;
+}
+.board-game.fourColumns {
+  height: 510px;
+}
+.board-game.fiveColumns {
+  height: 600px;
+}
+
+.board-game.twoRow {
+  width: 980px;
+}
+.board-game.threeRow {
+  width: 1100px;
+}
+.board-game.fourRow {
+  width: 1000px;
+}
+.board-game.fiveRow {
+  width: 1120px;
+}
+.board-game.sixRow {
+  width: 1200px;
+}
+.board-game.sevenRow {
+  width: 1350px;
+}
+.board-game.eightRow {
+  width: 1260px;
+}
+.board-game.nineRow {
+  width: 1360px;
+}
+.board-game.tenRow {
+  width: 1480px;
+}
+
+.container-wrapper {
+    position: relative;
+    max-width: 740px;
+    min-width: 740px;
+}
+
+.start-finish-wrapper {
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+    
+    background: #311403;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    position: absolute;
+}
+
+.start-finish-wrapper p {
+    font-family: Lobster, sans-serif;
+    font-size: 32px;
+    transform: rotate(-10deg);
+}
+
+#end {
+    right: -120px;
+    top: 0;
+}
+#end p {
+    transform: rotate(10deg);
+  }
+  
+  #content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 88px;
+  
+    margin-left: 120px;
+    padding-top: 30px;
+  }
+  
+  .house {
+    width: 120px;
+    height: 85px;
+  
+    background: white;
+    border-radius: 4px;
+  
+    border: 2px solid #311403;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .house:first-child p {
+    margin-left: 27px !important;
+  }
+  .house:last-child p {
+    margin-right: 27px !important;
+  }
+  
+  .house p {
+    font-size: 26px;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: 700;
+
+    max-width: 130px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  .house-six {
+    grid-column: 5;
+  }
+  
+  /* Seis houses */
+  .six .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .six .house:nth-child(6) {
+    grid-column: 5;
+  }
+  .six #end {
+    right: -15px;
+    top: 180px;
+  }
+  
+  /* Sete houses */
+  .seven .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .seven .house:nth-child(6) {
+    grid-column: 5;
+  }
+  .seven .house:nth-child(7) {
+    grid-column: 5;
+  }
+  .seven #end {
+    right: -15px;
+    top: 270px;
+  }
+  
+  /* Oito houses */
+  .eight .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .eight .house:nth-child(6),
+  .eight .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .eight .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .eight .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .eight #end {
+    right: 220px;
+    top: 180px;
+  }
+  
+  /* Nove houses */
+  .nine .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .nine .house:nth-child(6),
+  .nine .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .nine .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .nine .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .nine .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .nine #end {
+    right: 340px;
+    top: 180px;
+  }
+  
+  /* Dez houses */
+  .ten .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .ten .house:nth-child(6),
+  .ten .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .ten .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .ten .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .ten .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .ten .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .ten #end {
+    right: 460px;
+    top: 180px;
+  }
+  
+  /* eleven houses */
+  .eleven .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .eleven .house:nth-child(6),
+  .eleven .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .eleven .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .eleven .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .eleven .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .eleven .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .eleven .house:nth-child(11) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .eleven #end {
+    right: 590px;
+    top: 180px;
+  }
+  
+  /* twelve houses */
+  .twelve .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .twelve .house:nth-child(6),
+  .twelve .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .twelve .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .twelve .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .twelve .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .twelve .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .twelve .house:nth-child(11) {
+    grid-row: 3;
+    border-top-left-radius: 100px;
+  }
+  .twelve .house:nth-child(12) {
+    
+    grid-row: 4;
+  }
+  .twelve #end {
+    right: 480px;
+    top: 360px;
+  }
+  
+  /* thirteen houses */
+  .thirteen .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .thirteen .house:nth-child(6),
+  .thirteen .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .thirteen .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .thirteen .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .thirteen .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .thirteen .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .thirteen .house:nth-child(11) {
+    grid-row: 3;
+    border-top-left-radius: 100px;
+  }
+  .thirteen .house:nth-child(12) {
+    grid-row: 4;
+  }
+  .thirteen .house:nth-child(13) {
+    grid-row: 5;
+  }
+  .thirteen #end {
+    right: 480px;
+    top: 450px;
+  }
+  
+  /* fourteen houses */
+  .fourteen .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .fourteen .house:nth-child(6),
+  .fourteen .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .fourteen .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .fourteen .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .fourteen .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .fourteen .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .fourteen .house:nth-child(11) {
+    grid-row: 3;
+    border-top-left-radius: 100px;
+  }
+  .fourteen .house:nth-child(12) {
+    grid-row: 4;
+  }
+  .fourteen .house:nth-child(13) {
+    grid-row: 5;
+    border-bottom-left-radius: 100px;
+  }
+  .fourteen .house:nth-child(14) {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .fourteen #end {
+    right: 250px;
+    top: 360px;
+  }
+  
+  /* fifteen houses */
+  .fifteen .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .fifteen .house:nth-child(6),
+  .fifteen .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .fifteen .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .fifteen .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .fifteen .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .fifteen .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .fifteen .house:nth-child(11) {
+    grid-row: 3;
+    border-top-left-radius: 100px;
+  }
+  .fifteen .house:nth-child(12) {
+    grid-row: 4;
+  }
+  .fifteen .house:nth-child(13) {
+    grid-row: 5;
+    border-bottom-left-radius: 100px;
+  }
+  .fifteen .house:nth-child(14) {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .fifteen .house:nth-child(15) {
+    grid-column: 3;
+    grid-row: 5;
+  }
+  .fifteen #end {
+    right: 140px;
+    top: 360px;
+  }
+  
+  /* sixteen houses */
+  .sixteen .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .sixteen .house:nth-child(6),
+  .sixteen .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .sixteen .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .sixteen .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .sixteen .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .sixteen .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .sixteen .house:nth-child(11) {
+    grid-row: 3;
+    border-top-left-radius: 100px;
+  }
+  .sixteen .house:nth-child(12) {
+    grid-row: 4;
+  }
+  .sixteen .house:nth-child(13) {
+    grid-row: 5;
+    border-bottom-left-radius: 100px;
+  }
+  .sixteen .house:nth-child(14) {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .sixteen .house:nth-child(15) {
+    grid-column: 3;
+    grid-row: 5;
+  }
+  .sixteen .house:nth-child(16) {
+    grid-column: 4;
+    grid-row: 5;
+  }
+  .sixteen #end {
+    right: 0px;
+    top: 360px;
+  }
+  
+  /* moreSeventeen houses */
+  .moreSeventeen.container-wrapper {
+    max-width: 1200px;
+    min-width: 1200px;
+  }
+  .moreSeventeen #content {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  
+  .moreSeventeen .house:nth-child(5) {
+    border-top-right-radius: 100px;
+  }
+  .moreSeventeen .house:nth-child(6),
+  .moreSeventeen .house:nth-child(7) {
+    grid-column: 5;
+  }
+  
+  .moreSeventeen .house:nth-child(7) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .moreSeventeen .house:nth-child(8) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .moreSeventeen .house:nth-child(9) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .moreSeventeen .house:nth-child(10) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .moreSeventeen .house:nth-child(11) {
+    grid-row: 3;
+    border-top-left-radius: 100px;
+  }
+  .moreSeventeen .house:nth-child(12) {
+    grid-row: 4;
+  }
+  .moreSeventeen .house:nth-child(13) {
+    grid-row: 5;
+    border-bottom-left-radius: 100px;
+  }
+  .moreSeventeen .house:nth-child(14) {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .moreSeventeen .house:nth-child(15) {
+    grid-column: 3;
+    grid-row: 5;
+  }
+  .moreSeventeen .house:nth-child(16) {
+    grid-column: 4;
+    grid-row: 5;
+  }
+  .moreSeventeen .house:nth-child(17) {
+    grid-row: 5;
+  }
+  .moreSeventeen .house:nth-child(18) {
+    grid-row: 5;
+  }
+  .moreSeventeen .house:nth-child(19) {
+    grid-row: 5;
+  }
+  .moreSeventeen .house:nth-child(20) {
+    grid-row: 4;
+    grid-column: 7;
+  }
+  .moreSeventeen.house-20 .house:nth-child(19),
+  .moreSeventeen.house-21 .house:nth-child(19),
+  .moreSeventeen.house-22 .house:nth-child(19),
+  .moreSeventeen.house-23 .house:nth-child(19),
+  .moreSeventeen.house-24 .house:nth-child(19),
+  .moreSeventeen.house-25 .house:nth-child(19),
+  .moreSeventeen.house-26 .house:nth-child(19),
+  .moreSeventeen.house-27 .house:nth-child(19),
+  .moreSeventeen.house-28 .house:nth-child(19),
+  .moreSeventeen.house-29 .house:nth-child(19),
+  .moreSeventeen.house-30 .house:nth-child(19) {
+    border-bottom-right-radius: 100px;
+  }
+  
+  .moreSeventeen .house:nth-child(21) {
+    grid-row: 3;
+    grid-column: 7;
+  }
+  
+  .moreSeventeen .house:nth-child(22) {
+    grid-row: 2;
+    grid-column: 7;
+  }
+  
+  .moreSeventeen .house:nth-child(23) {
+    grid-row: 1;
+    grid-column: 7;
+  }
+  
+  .moreSeventeen.house-23 .house:nth-child(23),
+  .moreSeventeen.house-24 .house:nth-child(23),
+  .moreSeventeen.house-25 .house:nth-child(23),
+  .moreSeventeen.house-26 .house:nth-child(23),
+  .moreSeventeen.house-27 .house:nth-child(23),
+  .moreSeventeen.house-28 .house:nth-child(23),
+  .moreSeventeen.house-29 .house:nth-child(23),
+  .moreSeventeen.house-30 .house:nth-child(23) {
+    border-top-left-radius: 100px;
+  }
+  
+  .moreSeventeen .house:nth-child(24) {
+    grid-row: 1;
+    grid-column: 8;
+  }
+  
+  .moreSeventeen .house:nth-child(25) {
+    grid-row: 1;
+    grid-column: 9;
+  }
+  .moreSeventeen.house-25 .house:nth-child(25),
+  .moreSeventeen.house-26 .house:nth-child(25),
+  .moreSeventeen.house-27 .house:nth-child(25),
+  .moreSeventeen.house-28 .house:nth-child(25),
+  .moreSeventeen.house-29 .house:nth-child(25),
+  .moreSeventeen.house-30 .house:nth-child(25) {
+    border-top-right-radius: 100px;
+  }
+  
+  
+  .moreSeventeen .house:nth-child(26) {
+    grid-row: 2;
+    grid-column: 9;
+  }
+  
+  .moreSeventeen .house:nth-child(27) {
+    grid-row: 3;
+    grid-column: 9;
+  }
+  
+  .moreSeventeen .house:nth-child(28) {
+    grid-row: 4;
+    grid-column: 9;
+  }
+  
+  .moreSeventeen .house:nth-child(29) {
+    grid-row: 5;
+    grid-column: 9;
+  }
+  
+  .moreSeventeen .house:nth-child(30) {
+    grid-row: 5;
+    grid-column: 10;
+  }
+  
+  .moreSeventeen.house-29 .house:nth-child(29),
+  .moreSeventeen.house-30 .house:nth-child(29) {
+    border-bottom-left-radius: 100px;
+  }
+  
+  .moreSeventeen #end {
+    right: 340px;
+    top: 360px;
+  }
+  
+  .moreSeventeen.house-18 #end {
+    right: 220px;
+  }
+  .moreSeventeen.house-19 #end {
+    right: 100px;
+  }
+  .moreSeventeen.house-20 #end {
+    top: 170px;
+    right: 200px;
+  }
+  .moreSeventeen.house-21 #end {
+    top: 80px;
+    right: 200px;
+  }
+  .moreSeventeen.house-22 #end {
+    top: -10px;
+    right: 200px;
+  }
+  .moreSeventeen.house-23 #end {
+    top: -10px;
+    right: 80px;
+  }
+  .moreSeventeen.house-24 #end {
+    top: -10px;
+    right: 0px;
+  }
+  .moreSeventeen.house-25 #end {
+    top: -10px;
+    right: -160px;
+  }
+  .moreSeventeen.house-26 #end {
+    top: 180px;
+    right: -50px;
+  }
+  .moreSeventeen.house-27 #end {
+    top: 270px;
+    right: -50px;
+  }
+  .moreSeventeen.house-28 #end {
+    top: 350px;
+    right: -50px;
+  }
+  .moreSeventeen.house-29 #end {
+    top: 350px;
+    right: -170px;
+  }
+  .moreSeventeen.house-30 #end {
+    top: 350px;
+    right: -280px;
+  }
