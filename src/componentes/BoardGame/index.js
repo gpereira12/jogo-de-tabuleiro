@@ -40,7 +40,10 @@ const BoardGame = React.forwardRef(({ housesText, housesQuantity, fileObjects, c
                         backgroundImage: fileObjects.length 
                             ? `linear-gradient(115deg, rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.3)), url(${fileObjects[0].data})` 
                             : '',
-                        background: bgcolor
+                        background: bgcolor,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: '50%'
                     }
                 }
             >
