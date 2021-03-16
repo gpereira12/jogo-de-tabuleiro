@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "dashboard-24px.svg",
+      "src": "baseline_dashboard_black_18dp.png",
       "type": "image/svg",
       "sizes": "192x192"
     },
     {
-      "src": "dashboard-24px.svg",
+      "src": "baseline_dashboard_black_18dp.png",
       "type": "image/svg",
       "sizes": "512x512"
     }
