@@ -1,8 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { TextField, IconButton } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-
-import { DropzoneDialogBase } from 'material-ui-dropzone';
+import { TextField } from '@material-ui/core';
 
 import './style.css';
 
@@ -11,11 +8,7 @@ function MuiForm({
   setHousesText, 
   housesQuantity, 
   setHousesQuantity, 
-  setDisableButton, 
-  fileObjects, 
-  setFileObjects,
-  open,
-  setOpen 
+  setDisableButton
 }) {
 
   const [ error, setError ] = useState(false);
@@ -74,6 +67,7 @@ function MuiForm({
       <div className="inputGroup">
         {inputHouses.map(input => (
           <TextField
+            key={input.name}
             name={input.name}
             type="text"
             label={input.label}
@@ -99,40 +93,6 @@ function MuiForm({
         style={{width: '150px', marginLeft: '12px', marginBottom: '22px'}}
       />
       {renderInputHouses}
-      <DropzoneDialogBase 
-        dialogTitle={
-          <IconButton 
-            style={{right: '12px', top: '8px', position: 'absolute', height: '12px'}}
-            onClick={() => setOpen(false)}
-          >
-            <CloseIcon/>
-          </IconButton>
-        }
-        dropzoneText="Arraste e solte a imagem aqui ou clique!"
-        fileObjects={fileObjects}
-        cancelButtonText={'Cancelar'}
-        submitButtonText={'Enviar'}
-        filesLimit={1}
-        maxFileSize={5000000}
-        open={open}
-        onAdd={newFileObjs => {
-          console.log('onAdd: ', newFileObjs);
-          setFileObjects([].concat(fileObjects, newFileObjs));
-        }}
-        onDelete={deleteFileObj => {
-          console.log('onDelete', deleteFileObj);
-          const newFileObjects = fileObjects.filter(file => {
-            return file.data !== deleteFileObj.data && file;
-          })
-          setFileObjects(newFileObjects);
-        }}
-        onSave={() => {
-          console.log('onSave: ', fileObjects);
-          setOpen(false);
-        }}
-        showPreviews={true}
-        showFileNamesInPreview={true}
-      />
     </div>
   );
 }

@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { numberClass } from '../../utils';
 import './style.css';
 
-const BoardGame = React.forwardRef(({ housesText, housesQuantity, fileObjects }, ref) => {
-    console.log(fileObjects)
+const BoardGame = React.forwardRef(({ housesText, housesQuantity, fileObjects, color, bgcolor }, ref) => {
+
     const renderHouses = useMemo(() => {
         let boardHouses = [];
 
@@ -35,16 +35,31 @@ const BoardGame = React.forwardRef(({ housesText, housesQuantity, fileObjects },
             <div 
                 ref={ref} 
                 className={classNames("board-game", numberClass(housesQuantity))}
-                style={{backgroundImage: fileObjects.length && `linear-gradient(115deg, rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.3)), url(${fileObjects[0].data})`}}
+                style={
+                    {
+                        backgroundImage: fileObjects.length 
+                            ? `linear-gradient(115deg, rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.3)), url(${fileObjects[0].data})` 
+                            : '',
+                        background: bgcolor
+                    }
+                }
             >
                 <div className={classNames("container-wrapper", numberClass(housesQuantity))}>
-                <div id="start" className="start-finish-wrapper">
+                <div 
+                    id="start" 
+                    className="start-finish-wrapper"
+                    style={{ background: `${color}`}}
+                >
                     <p>Início</p>
                 </div>
                 <div id="content">
                     {renderHouses}
                 </div>
-                <div id="end" className="start-finish-wrapper">
+                <div 
+                    id="end" 
+                    className="start-finish-wrapper"
+                    style={{ background: `${color}`}}
+                >
                     <p>Fim</p>
                 </div>
                 </div>

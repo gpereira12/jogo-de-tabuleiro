@@ -1,11 +1,12 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { exportComponentAsJPEG } from 'react-component-export-image';
 
-import { Button, LinearProgress } from '@material-ui/core';
+import { Button, LinearProgress, Divider } from '@material-ui/core';
 
 import Form from './componentes/MuiForm';
 import BoardGame from './componentes/BoardGame';
-
+import MuiDropzone from './componentes/MuiDropzone';
+import MuiColorPicker from './componentes/MuiColorPicker';
 
 import './App.css';
 
@@ -17,6 +18,8 @@ const App = () => {
   const [ housesQuantity, setHousesQuantity ] = useState(5);
   const [fileObjects, setFileObjects] = useState([]);
   const [open, setOpen] = useState(false);
+  const [ color, setColor ] = useState('#311403');
+  const [ bgcolor, setBgcolor ] = useState('#ecdfad');
 
   const createBoardGame = useCallback(() => {
     setIsSubmitting(true);
@@ -41,20 +44,33 @@ const App = () => {
         setOpen={setOpen}
       />
       {isSubmitting && <LinearProgress />}
-      <Button style={{marginRight: '22px'}} variant="contained" color="primary" onClick={() => setOpen(true)}>
-          Adicionar Imagem de fundo
-      </Button>
+      <MuiColorPicker 
+        color={color}
+        setColor={setColor}
+        bgcolor={bgcolor}
+        setBgcolor={setBgcolor}
+      />
+      <MuiDropzone 
+        open={open} 
+        setOpen={setOpen} 
+        fileObjects={fileObjects}
+        setFileObjects={setFileObjects}
+      />
+      <Divider style={{margin: '32px 12px'}}/>
       <Button
         variant="contained"
         color="primary"
         disabled={isSubmitting || disableButton}
         onClick={createBoardGame}
+        style={{ marginLeft: '12px' }}
       >
         {isSubmitting ? 'Gerando tabuleiro...' : 'Gerar Tabuleiro'}
       </Button>
       <BoardGame 
         ref={componentRef}
         fileObjects={fileObjects}
+        color={color}
+        bgcolor={bgcolor}
         housesText={housesText} 
         setHousesText={setHousesText}
         housesQuantity={housesQuantity} 
