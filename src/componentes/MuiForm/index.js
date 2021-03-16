@@ -1,7 +1,22 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { TextField } from '@material-ui/core';
+import { TextField, IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
-function MuiForm({ housesText, setHousesText, housesQuantity, setHousesQuantity, setDisableButton }) {
+import { DropzoneDialogBase } from 'material-ui-dropzone';
+
+import './style.css';
+
+function MuiForm({ 
+  housesText, 
+  setHousesText, 
+  housesQuantity, 
+  setHousesQuantity, 
+  setDisableButton, 
+  fileObjects, 
+  setFileObjects,
+  open,
+  setOpen 
+}) {
 
   const [ error, setError ] = useState(false);
   const [ helperText, setHelperText ] = useState("Digite o número de casas que deseja criar o jogo");
@@ -36,9 +51,12 @@ function MuiForm({ housesText, setHousesText, housesQuantity, setHousesQuantity,
     if(value.length > 55) {
       return
     }
-
-    setHousesText({...housesText, [input.name]: value});
+    let housesName = input.name;
+    let housesTemp = housesText;
     
+    housesTemp[housesName] = value;
+
+    setHousesText({...housesTemp, [input.name]: value});
   }, [housesText, setHousesText]);
 
   const renderInputHouses = useMemo(() => {
@@ -53,23 +71,23 @@ function MuiForm({ housesText, setHousesText, housesQuantity, setHousesQuantity,
     }
 
     return (
-      <>
+      <div className="inputGroup">
         {inputHouses.map(input => (
           <TextField
             name={input.name}
             type="text"
             label={input.label}
             onChange={handleHouseText}
-            style={{marginLeft: '12px', marginBottom: '12px'}}
+            style={{marginLeft: '12px'}}
           />
         ))}
-      </>
+      </div>
     );
     
   }, [handleHouseText, housesQuantity]);
 
   return (
-    <>
+    <div className="form-group">
       <TextField
         name="housesQuantity"
         type="number"
@@ -79,9 +97,43 @@ function MuiForm({ housesText, setHousesText, housesQuantity, setHousesQuantity,
         value={housesQuantity}
         onChange={housesQuantityHandler}
         style={{width: '150px', marginLeft: '12px', marginBottom: '22px'}}
-      /><br />
+      />
       {renderInputHouses}
-    </>
+      <DropzoneDialogBase 
+        dialogTitle={
+          <IconButton 
+            style={{right: '12px', top: '8px', position: 'absolute', height: '12px'}}
+            onClick={() => setOpen(false)}
+          >
+            <CloseIcon/>
+          </IconButton>
+        }
+        dropzoneText="Arraste e solte a imagem aqui ou clique!"
+        fileObjects={fileObjects}
+        cancelButtonText={'Cancelar'}
+        submitButtonText={'Enviar'}
+        filesLimit={1}
+        maxFileSize={5000000}
+        open={open}
+        onAdd={newFileObjs => {
+          console.log('onAdd: ', newFileObjs);
+          setFileObjects([].concat(fileObjects, newFileObjs));
+        }}
+        onDelete={deleteFileObj => {
+          console.log('onDelete', deleteFileObj);
+          const newFileObjects = fileObjects.filter(file => {
+            return file.data !== deleteFileObj.data && file;
+          })
+          setFileObjects(newFileObjects);
+        }}
+        onSave={() => {
+          console.log('onSave: ', fileObjects);
+          setOpen(false);
+        }}
+        showPreviews={true}
+        showFileNamesInPreview={true}
+      />
+    </div>
   );
 }
 export default MuiForm;

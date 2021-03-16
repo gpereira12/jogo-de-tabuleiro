@@ -15,6 +15,8 @@ const App = () => {
   const [ disableButton, setDisableButton ] = useState(false);
   const [ housesText, setHousesText ] = useState([]);
   const [ housesQuantity, setHousesQuantity ] = useState(5);
+  const [fileObjects, setFileObjects] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const createBoardGame = useCallback(() => {
     setIsSubmitting(true);
@@ -33,10 +35,15 @@ const App = () => {
         housesText={housesText} 
         setHousesText={setHousesText}
         setDisableButton={setDisableButton}
+        fileObjects={fileObjects}
+        setFileObjects={setFileObjects}
+        open={open}
+        setOpen={setOpen}
       />
-      <br />
-      <br />
       {isSubmitting && <LinearProgress />}
+      <Button style={{marginRight: '22px'}} variant="contained" color="primary" onClick={() => setOpen(true)}>
+          Adicionar Imagem de fundo
+      </Button>
       <Button
         variant="contained"
         color="primary"
@@ -45,10 +52,9 @@ const App = () => {
       >
         {isSubmitting ? 'Gerando tabuleiro...' : 'Gerar Tabuleiro'}
       </Button>
-      <br />
-      <br />
       <BoardGame 
         ref={componentRef}
+        fileObjects={fileObjects}
         housesText={housesText} 
         setHousesText={setHousesText}
         housesQuantity={housesQuantity} 

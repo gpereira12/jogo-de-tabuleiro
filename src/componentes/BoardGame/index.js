@@ -1,16 +1,11 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import classNames from 'classnames';
 
 import { numberClass } from '../../utils';
 import './style.css';
 
-const BoardGame = React.forwardRef(({ housesText, housesQuantity }, ref) => {
-    const [ housesContent, setHousesContent ] = useState(Object.values(housesText));
-    
-    useEffect(() => {
-        setHousesContent(Object.values(housesText));
-    }, [housesText]);
-
+const BoardGame = React.forwardRef(({ housesText, housesQuantity, fileObjects }, ref) => {
+    console.log(fileObjects)
     const renderHouses = useMemo(() => {
         let boardHouses = [];
 
@@ -18,7 +13,7 @@ const BoardGame = React.forwardRef(({ housesText, housesQuantity }, ref) => {
             if(housesQuantity < 5 || housesQuantity > 30) return;
             boardHouses.push({
                 id: `${index+1}`,
-                content: housesContent[index]
+                content: housesText[`house-${index+1}`]
             })
         }
 
@@ -26,18 +21,22 @@ const BoardGame = React.forwardRef(({ housesText, housesQuantity }, ref) => {
             <>
                 {boardHouses.map((house, index) => (
                     <div className='house' key={house.id}>
-                        <p style={{fontSize: `${housesContent[index]?.length > 3 ? 12 : 26}px`, margin: '12px 4px'}}>
+                        <p style={{fontSize: `${housesText[`house-${index+1}`]?.length > 3 ? 12 : 26}px`, margin: '12px 4px'}}>
                             {house.content}
                         </p>
                     </div>
                 ))}
             </>
         );
-    }, [housesContent, housesQuantity]);
+    }, [housesQuantity, housesText]);
 
     return (
         <div className="wrapper">
-            <div  ref={ref} className={classNames("board-game", numberClass(housesQuantity))}>
+            <div 
+                ref={ref} 
+                className={classNames("board-game", numberClass(housesQuantity))}
+                style={{backgroundImage: fileObjects.length && `linear-gradient(115deg, rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.3)), url(${fileObjects[0].data})`}}
+            >
                 <div className={classNames("container-wrapper", numberClass(housesQuantity))}>
                 <div id="start" className="start-finish-wrapper">
                     <p>Início</p>

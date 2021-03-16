@@ -1,5 +1,6 @@
 .wrapper {
   height: 100vh;
+  margin-top: 22px;
 }
 
 .board-game {
@@ -9,6 +10,10 @@
     width: 860px;
     border: 2px solid #311403;
     border-radius: 4px;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .board-game.twoColumns {
